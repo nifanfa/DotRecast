@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0 # Get all history to allow automatic versioning using MinVer
 
       - name: Setup Dotnet
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: '10.x'
 
@@ -47,7 +47,7 @@ jobs:
           zip -r ../DotRecast.Recast.Demo-${{ steps.version.outputs.version}}.zip ./
         if: success()
 
-      - uses: release-drafter/release-drafter@master
+      - uses: release-drafter/release-drafter@v7
         with:
           version: ${{ steps.version.outputs.version }}
           publish: true
